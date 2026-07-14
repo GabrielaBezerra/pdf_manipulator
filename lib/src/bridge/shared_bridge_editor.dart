@@ -244,6 +244,12 @@ class _SharedEditorHandle extends BridgeEditorHandle {
     'height': height,
   });
 
+  @override
+  PdfTask<List<PdfPageImage>> getPageImages(int page) => _exec(
+    EngineOp.editorGetPageImages,
+    {'page': page},
+  ).map((map) => codec.decodePdfPageImages(map));
+
   // ── Redaction ──
 
   @override

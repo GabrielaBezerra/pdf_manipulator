@@ -266,6 +266,9 @@ abstract class BridgeEditorHandle {
     required double height,
   });
 
+  /// Returns image placements on [page].
+  PdfTask<List<PdfPageImage>> getPageImages(int page);
+
   // ── Redaction ──
 
   /// Marks a [region] on [page] for redaction.

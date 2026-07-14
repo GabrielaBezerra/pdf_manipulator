@@ -87,20 +87,12 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_driver:
-    dependency: "direct dev"
+    dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_lints:
-    dependency: "direct dev"
-    description:
-      name: flutter_lints
-      sha256: "3105dc8492f6183fb076ccf1f351ac3d60564bff92e20bfc4af9cc1651f4e7e1"
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.0.0"
   flutter_test:
-    dependency: "direct dev"
+    dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -118,7 +110,7 @@ packages:
     source: hosted
     version: "2.0.2"
   integration_test:
-    dependency: "direct dev"
+    dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -146,14 +138,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
-  lints:
-    dependency: transitive
-    description:
-      name: lints
-      sha256: "12f842a479589fea194fe5c5a3095abc7be0c1f2ddfa9a0e76aed1dbd26a87df"
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.1.0"
   logging:
     dependency: transitive
     description:
@@ -203,19 +187,19 @@ packages:
     source: hosted
     version: "1.9.1"
   pdf_manipulator:
+    dependency: transitive
+    description:
+      path: "../.."
+      relative: true
+    source: path
+    version: "0.0.0"
+  pdf_manipulator_example:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.0"
-  pdf_manipulator_example_test_support:
-    dependency: "direct dev"
-    description:
-      path: test_support
-      relative: true
-    source: path
-    version: "0.0.0"
+    version: "1.0.0+1"
   platform:
     dependency: transitive
     description:
@@ -342,7 +326,7 @@ packages:
     source: hosted
     version: "1.1.1"
   webdriver:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: webdriver
       sha256: "2f3a14ca026957870cfd9c635b83507e0e51d8091568e90129fbf805aba7cade"

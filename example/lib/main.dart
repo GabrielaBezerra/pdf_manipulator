@@ -2459,7 +2459,7 @@ class _MergeTabState extends State<_MergeTab>
                 itemCount: _files.length,
                 // onReorderItem pre-adjusts newIndex for the removed
                 // slot — no manual decrement needed.
-                onReorderItem: (oldIndex, newIndex) => setState(() {
+                onReorder: (oldIndex, newIndex) => setState(() {
                   final item = _files.removeAt(oldIndex);
                   _files.insert(newIndex, item);
                   _merged = null;

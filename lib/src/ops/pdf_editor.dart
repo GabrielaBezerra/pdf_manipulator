@@ -10,6 +10,7 @@ import 'package:pdf_manipulator/src/ops/pdf_doc.dart';
 import 'package:pdf_manipulator/src/types/data_sink.dart';
 import 'package:pdf_manipulator/src/types/data_source.dart';
 import 'package:pdf_manipulator/src/types/pdf_enums.dart';
+import 'package:pdf_manipulator/src/types/pdf_image.dart';
 import 'package:pdf_manipulator/src/types/pdf_task.dart';
 import 'package:pdf_manipulator/src/types/pdf_params.dart';
 import 'package:pdf_manipulator/src/bridge/pdf_bridge.dart';
@@ -294,6 +295,17 @@ class PdfEditor {
   }) {
     _check();
     return _handle.resizeImage(page, imageName, width: width, height: height);
+  }
+
+  /// Returns the image placements on [page] (0-based index).
+  ///
+  /// Each [PdfPageImage] carries the resource [PdfPageImage.name] (usable with
+  /// [resizeImage]), the [PdfPageImage.bounds] bounding box
+  /// `[x, y, width, height]` in page units, and the
+  /// [PdfPageImage.matrix] transformation `[a, b, c, d, e, f]`.
+  PdfTask<List<PdfPageImage>> getPageImages(int page) {
+    _check();
+    return _handle.getPageImages(page);
   }
 
   /// Converts the document to PDF/A at the given conformance [level].

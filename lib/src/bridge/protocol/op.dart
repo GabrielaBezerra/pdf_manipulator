@@ -89,6 +89,9 @@ enum EngineOp {
   /// Extract pages without modifying the editor.
   editorExtractPages('editorExtractPages'),
 
+  /// Get image placements on a page.
+  editorGetPageImages('editorGetPageImages'),
+
   // ── Builder handle ops ──
 
   /// Create a new PDF builder session.

@@ -208,6 +208,15 @@ EngineRequest editorMergeFromOp({
   'otherBytes': otherBytes,
 });
 
+/// Builds an editor get-page-images request.
+EngineRequest editorGetPageImagesOp({
+  required int handleId,
+  required int page,
+}) => EngineRequest(EngineOp.editorGetPageImages, {
+  'handleId': handleId,
+  'page': page,
+});
+
 // ── Builder handle ops ──
 
 /// Builds a builder-create request.
@@ -397,6 +406,19 @@ PdfImage decodePdfImage(Map<String, Object?> data) => PdfImage(
   bitsPerComponent: data['bitsPerComponent'] as int? ?? 8,
   data: _extractBytes(data['data']),
 );
+
+/// Decodes a list of page image placements from a response map.
+List<PdfPageImage> decodePdfPageImages(Map<String, Object?> r) {
+  final items = r['images'] as List? ?? [];
+  return items.map((item) {
+    final m = _asMap(item);
+    return PdfPageImage(
+      name: m['name'] as String? ?? '',
+      bounds: _toDoubleList(m['bounds']),
+      matrix: _toDoubleList(m['matrix']),
+    );
+  }).toList();
+}
 
 /// Decodes editor metadata (page count, version, title, etc.).
 ({
@@ -589,4 +611,9 @@ Uint8List _extractBytes(Object? data) {
   if (data is Uint8List) return data;
   if (data is ByteBuffer) return Uint8List.view(data);
   return Uint8List(0);
+}
+
+List<double> _toDoubleList(Object? data) {
+  if (data is List) return data.map((e) => (e as num).toDouble()).toList();
+  return [];
 }
